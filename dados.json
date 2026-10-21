@@ -1,25 +1,786 @@
 {
-  "atualizado_em": "2026-10-21T10:20:00-03:00",
-  "rouanet": [
-    { "data": "2026-06-29", "empresa": "Bonno", "valor": 14273.45, "observacao": "" },
-    { "data": "2026-09-22", "empresa": "Torfresma", "valor": 50000.00, "observacao": "" },
-    { "data": "2026-09-30", "empresa": "Bonno", "valor": 12888.19, "observacao": "" },
-    { "data": "2026-10-20", "empresa": "Alfa", "valor": 50000.00, "observacao": "" }
-  ],
-  "privados": [
-    {
-      "empresa": "Unimed",
-      "cota": "Patrocínio master",
-      "valor": 70000.00,
-      "especie": 10000.00,
-      "permuta": 60000.00,
-      "contrapartida": "Permuta: ambulância com socorrista e enfermeira durante toda a feira. Estande pago à parte.",
-      "status": "A receber"
-    }
-  ],
-  "atracoes": [],
-  "estandes": [],
-  "planejamento": [
-    { "item": "Rodeio country com César Paraná", "responsavel": "", "prazo": "", "status": "Aguardando orçamento" }
-  ]
+ "atualizado_em": "2026-10-21T14:20:00-03:00",
+ "rouanet": [
+  {
+   "data": "2026-06-29",
+   "empresa": "Bonno",
+   "valor": 14273.45,
+   "observacao": ""
+  },
+  {
+   "data": "2026-09-22",
+   "empresa": "Torfresma",
+   "valor": 50000.0,
+   "observacao": ""
+  },
+  {
+   "data": "2026-09-30",
+   "empresa": "Bonno",
+   "valor": 12888.19,
+   "observacao": ""
+  },
+  {
+   "data": "2026-10-20",
+   "empresa": "Alfa",
+   "valor": 50000.0,
+   "observacao": ""
+  }
+ ],
+ "privados": [
+  {
+   "empresa": "Unimed",
+   "cota": "Patrocínio master",
+   "valor": 70000.0,
+   "especie": 10000.0,
+   "permuta": 60000.0,
+   "contrapartida": "Permuta: ambulância com socorrista e enfermeira durante toda a feira. Estande pago à parte.",
+   "status": "A receber"
+  }
+ ],
+ "atracoes": [],
+ "planejamento": [
+  {
+   "item": "Rodeio country com César Paraná",
+   "responsavel": "",
+   "prazo": "",
+   "status": "Aguardando orçamento"
+  }
+ ],
+ "mapa_pavilhao01": [
+  {
+   "estande": "01I",
+   "expositor_2025": "BOLFE Engenharia",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "02D",
+   "expositor_2025": "BOLFE Engenharia",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "03H",
+   "expositor_2025": "Autores Projetos de Engenharia",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "04D",
+   "expositor_2025": "Autores Projetos de Engenharia",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "05C",
+   "expositor_2025": "AL Antenas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "06C",
+   "expositor_2025": "Centro Auditivo Saint Germain",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "07A",
+   "expositor_2025": "Centro Auditivo Saint Germain",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "08A",
+   "expositor_2025": "Centro Auditivo Saint Germain",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "09D",
+   "expositor_2025": "A. S. Junior Instaladora Elétrica",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "10H",
+   "expositor_2025": "A. S. Junior Instaladora Elétrica",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "11D",
+   "expositor_2025": "Techinfo",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "12I",
+   "expositor_2025": "Techinfo",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "13C",
+   "expositor_2025": "Conak",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "14B",
+   "expositor_2025": "Conak",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "15A",
+   "expositor_2025": "Colchões Ferrari",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "16B",
+   "expositor_2025": "Móveis Rogathi",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "17B",
+   "expositor_2025": "SESI SENAI",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "18B",
+   "expositor_2025": "Sulcredi Âmplea",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "19B",
+   "expositor_2025": "Letícia Modas e Acessórios",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "20B",
+   "expositor_2025": "Letícia Modas e Acessórios",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "21A",
+   "expositor_2025": "Sicoob",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "22C",
+   "expositor_2025": "Sicoob",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "23C",
+   "expositor_2025": "Sicoob",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "24A",
+   "expositor_2025": "Sicoob",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "25B",
+   "expositor_2025": "Nico Turismo",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "26B",
+   "expositor_2025": "Rudnik Energia Solar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "27B",
+   "expositor_2025": "Sulcredi Âmplea",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "28B",
+   "expositor_2025": "Farmácia São Rafael",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "29B",
+   "expositor_2025": "MM Chocolateria",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "30A",
+   "expositor_2025": "Colchões Ferrari",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "31B",
+   "expositor_2025": "Conak",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "32C",
+   "expositor_2025": "Conak",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "33A",
+   "expositor_2025": "Feluma",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "34B",
+   "expositor_2025": "Mutchy Decor",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "35B",
+   "expositor_2025": "Mutchy Decor",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "36A",
+   "expositor_2025": "ALESC / Câmara de Vereadores",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "37A",
+   "expositor_2025": "Cerezer Estofados",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "38C",
+   "expositor_2025": "Esqualumis",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "39A",
+   "expositor_2025": "Papa Multas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "40B",
+   "expositor_2025": "Dkadidecor",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "41B",
+   "expositor_2025": "Dkadidecor",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "42B",
+   "expositor_2025": "Swell Óculos e Armações",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "43B",
+   "expositor_2025": "Swell Óculos e Armações",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "44B",
+   "expositor_2025": "Arcanjo Pratas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "45B",
+   "expositor_2025": "AL Vidros",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "46A",
+   "expositor_2025": "AL Vidros",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "47C",
+   "expositor_2025": "Esqualumis",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "48A",
+   "expositor_2025": "Cerezer Estofados",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "49A",
+   "expositor_2025": "ALESC / Câmara de Vereadores",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "50B",
+   "expositor_2025": "Elaborarte 3D",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "51B",
+   "expositor_2025": "Moça Biju",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "52A",
+   "expositor_2025": "Feluma",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "53B",
+   "expositor_2025": "Laboratório do Sol",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "54A",
+   "expositor_2025": "Laboratório do Sol",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "55A",
+   "expositor_2025": "Chapo Saúde e Bem Estar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "56A",
+   "expositor_2025": "Chapo Saúde e Bem Estar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "57A",
+   "expositor_2025": "Chapo Saúde e Bem Estar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "58B",
+   "expositor_2025": "Léo Cell",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "59A",
+   "expositor_2025": "Macodesc",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "60B",
+   "expositor_2025": "Macodesc",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "61A",
+   "expositor_2025": "IFSC",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "62A",
+   "expositor_2025": "Farmácia Vital",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "63B",
+   "expositor_2025": "Willian Celulares",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "64A",
+   "expositor_2025": "Due D'Pilaser",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "65A",
+   "expositor_2025": "Due D'Pilaser",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "66B",
+   "expositor_2025": "Willian Celulares",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "67A",
+   "expositor_2025": "DZ9",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "68A",
+   "expositor_2025": "DZ9",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "69B",
+   "expositor_2025": "Macodesc",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "70A",
+   "expositor_2025": "Macodesc",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "71B",
+   "expositor_2025": "UCEFF",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "72A",
+   "expositor_2025": "Chapo Saúde e Bem Estar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "73A",
+   "expositor_2025": "Chapo Saúde e Bem Estar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "74A",
+   "expositor_2025": "Chapo Saúde e Bem Estar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "75A",
+   "expositor_2025": "Laboratório do Sol",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "76B",
+   "expositor_2025": "Laboratório do Sol",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "77A",
+   "expositor_2025": "Rede Peperi",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "78A",
+   "expositor_2025": "Rede Peperi",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "79A",
+   "expositor_2025": "Rede Peperi",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "80A",
+   "expositor_2025": "Rede Peperi",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "81C",
+   "expositor_2025": "Agiliza",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "82E",
+   "expositor_2025": "Ambiental Limpeza Urbana",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "83E",
+   "expositor_2025": "Gap Mobilidades Elétricas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "84E",
+   "expositor_2025": "Afubra",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "85E",
+   "expositor_2025": "Unimed",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "86E",
+   "expositor_2025": "Sophia Antonella Moda e Acessórios",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "87E",
+   "expositor_2025": "Artelaje",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "88E",
+   "expositor_2025": "Master Nex",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "89E",
+   "expositor_2025": "Lumiere",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "90G",
+   "expositor_2025": "Vida Mais",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "91B",
+   "expositor_2025": "Vida Mais",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "92I",
+   "expositor_2025": "Unoesc",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "93B",
+   "expositor_2025": "Latena Acessórios",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "94B",
+   "expositor_2025": "Instituto Solle",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "95B",
+   "expositor_2025": "Patrimonial",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "96E",
+   "expositor_2025": "Carol Modas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "97E",
+   "expositor_2025": "Ortobom",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "98G",
+   "expositor_2025": "Armeria Tiro Certo",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "99G",
+   "expositor_2025": "Solus",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "100G",
+   "expositor_2025": "Estofados Renk",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "101G",
+   "expositor_2025": "Estofados Catarinense",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "102G",
+   "expositor_2025": "Paganini Soluções Elétricas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "103G",
+   "expositor_2025": "Telhas Bonfanti / ACISMO",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "104J",
+   "expositor_2025": "Evidência",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "105B",
+   "expositor_2025": "Rotoplast",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  }
+ ]
 }
