@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-21T14:20:00-03:00",
+ "atualizado_em": "2026-10-21T14:30:00-03:00",
  "rouanet": [
   {
    "data": "2026-06-29",
@@ -778,6 +778,267 @@
   {
    "estande": "105B",
    "expositor_2025": "Rotoplast",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  }
+ ],
+ "mapa_pavilhao02": [
+  {
+   "estande": "01A",
+   "expositor_2025": "Eskilets Moda",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "02A",
+   "expositor_2025": "Eskilets Moda",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "03A",
+   "expositor_2025": "Sasso Informática e Celulares",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "04F",
+   "expositor_2025": "Relax Colchões e Estofados",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "05B",
+   "expositor_2025": "Loja Babyen",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "06B",
+   "expositor_2025": "Loja Babyen",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "07B",
+   "expositor_2025": "Jumper Profissões e Idiomas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "08B",
+   "expositor_2025": "Jumper Profissões e Idiomas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "09B",
+   "expositor_2025": "DH Ambiental",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "10B",
+   "expositor_2025": "Europa",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "11B",
+   "expositor_2025": "Esen Soluções em Energia",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "12B",
+   "expositor_2025": "Credlu",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "13B",
+   "expositor_2025": "Top Service Industrial",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "14B",
+   "expositor_2025": "VC Colombo Colchões",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "14B",
+   "expositor_2025": "VC Colombo Colchões",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "15B",
+   "expositor_2025": "Hospedare Tur",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "16B",
+   "expositor_2025": "Vivanet Telecom",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "17E",
+   "expositor_2025": "Fox Fotografia",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "18A",
+   "expositor_2025": "Loja Mundo da Lua Kids",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "19A",
+   "expositor_2025": "Iva Bordados",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "20B",
+   "expositor_2025": "Bimbilu Creative Home",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "21A",
+   "expositor_2025": "SCNET",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "22A",
+   "expositor_2025": "SCNET",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "23B",
+   "expositor_2025": "Stone",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "24C",
+   "expositor_2025": "Divinalli Semijóias",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "26B",
+   "expositor_2025": "Dayros Modas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "27B",
+   "expositor_2025": "Costa Mar Tur",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "28B",
+   "expositor_2025": "Juh Langery",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "29H",
+   "expositor_2025": "Farmácia Agostini",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "30H",
+   "expositor_2025": "Natiele Ruschel Fotografias",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "31H",
+   "expositor_2025": "100% Chocolate com Morango",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "32H",
+   "expositor_2025": "M. Rodrigues Massageadores",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "35H",
+   "expositor_2025": "Família do Consórcio",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "36H",
+   "expositor_2025": "Matéria Padoka",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "37H",
+   "expositor_2025": "Família do Consórcio",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "38H",
+   "expositor_2025": "Papelaria Paper.bi",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "PREF",
+   "expositor_2025": "Prefeitura",
    "status": "pendente",
    "expositor_2027": "",
    "obs": ""

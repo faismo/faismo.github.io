@@ -102,20 +102,24 @@ td.long { color: var(--muted); font-size: 13px; max-width: 22rem; }
 .mprog { display: flex; height: 12px; border-radius: 999px; overflow: hidden; background: var(--soft); margin: 14px 0 8px; gap: 2px; }
 .mprog span { height: 100%; }
 .mapcard { padding: 12px; }
+.pavsel { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+.pavsel button { font: inherit; font-size: 14px; font-weight: 500; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--soft); color: var(--muted); cursor: pointer; }
+.pavsel button[aria-selected="true"] { background: var(--c1); border-color: var(--c1); color: #fff; }
 .maptools { display: flex; gap: 8px; margin-bottom: 10px; }
 .maptools input { flex: 1; min-width: 0; font: inherit; font-size: 16px; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--soft); color: var(--fg); }
 .zoom { display: flex; gap: 4px; }
 .zoom button { width: 42px; font: inherit; font-size: 20px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--fg); cursor: pointer; }
 .mapwrap { overflow: auto; border-radius: 10px; background: var(--map-bg); max-height: 78vh; -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y; }
 #mapa { display: block; width: 100%; height: auto; margin: 0 auto; }
-#mapa .st rect { stroke: var(--st-line); stroke-width: 2; cursor: pointer; transition: opacity .2s; }
-#mapa .st.sel rect { stroke: var(--fg); stroke-width: 6; }
+#mapa rect { vector-effect: non-scaling-stroke; }
+#mapa .st rect { stroke: var(--st-line); stroke-width: 1; cursor: pointer; transition: opacity .2s; }
+#mapa .st.sel rect { stroke: var(--fg); stroke-width: 3; }
 #mapa .st.dim { opacity: .18; }
 #mapa .st text { pointer-events: none; fill: #1a2530; font-family: Inter, system-ui, sans-serif; }
 #mapa .st .n { font-weight: 700; }
-#mapa .wall { fill: none; stroke: var(--map-wall); stroke-width: 6; }
-#mapa .zone { fill: var(--soft); stroke: var(--st-line); stroke-width: 2; stroke-dasharray: 8 6; }
-#mapa .lbl { fill: var(--muted); font-family: Inter, system-ui, sans-serif; font-size: 30px; font-weight: 600; letter-spacing: .05em; }
+#mapa .wall { fill: none; stroke: var(--map-wall); stroke-width: 2.5; }
+#mapa .zone { fill: var(--soft); stroke: var(--st-line); stroke-width: 1; stroke-dasharray: 4 3; }
+#mapa .lbl { fill: var(--muted); font-family: Inter, system-ui, sans-serif; font-weight: 600; letter-spacing: .05em; }
 .minfo[hidden] { display: none; }
 .minfo { position: sticky; bottom: 10px; z-index: 3; box-shadow: 0 6px 24px rgba(16,32,48,.18); border: 1px solid var(--line); margin-top: 10px; background: var(--soft); border-radius: 10px; padding: 12px 14px; display: grid; gap: 4px; }
 .minfo .t { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
@@ -201,7 +205,7 @@ details.lista[open] > summary::after { content: 'Fechar ▴'; }
     <div class="tiles">
       <button class="card tile" data-go="privados"><div><p class="label">Patrocinadores privados</p><p class="mid serif num" data-k="privados_qtd">—</p></div><p class="go">Ver patrocínios →</p></button>
       <button class="card tile" data-go="atracoes"><div><p class="label">Atrações confirmadas</p><p class="mid serif num" data-k="atracoes_qtd">—</p></div><p class="go">Ver programação →</p></button>
-      <button class="card tile" data-go="estandes"><div><p class="label">Estandes confirmados · Pav. 01</p><p class="mid serif num"><span data-m="confirmado">—</span><span class="note"> de <span data-m="total">—</span></span></p><p class="note"><span data-m="reservado">—</span> reservado(s)</p></div><p class="go">Ver mapa →</p></button>
+      <button class="card tile" data-go="estandes"><div><p class="label">Estandes confirmados</p><p class="mid serif num"><span data-mt="confirmado">—</span><span class="note"> de <span data-mt="total">—</span></span></p><p class="note"><span data-mt="reservado">—</span> reservado(s) · Pav. 01 e 02</p></div><p class="go">Ver mapa →</p></button>
       <button class="card tile" data-go="planejamento"><div><p class="label">Itens em planejamento</p><p class="mid serif num" data-k="planejamento_abertos">—</p></div><p class="go">Ver pendências →</p></button>
     </div>
 
@@ -244,7 +248,8 @@ details.lista[open] > summary::after { content: 'Fechar ▴'; }
 
   <section class="page stack" id="estandes" hidden>
     <div class="card">
-      <h2 class="h2">Estandes · Pavilhão 01</h2>
+      <div class="pavsel" role="tablist" aria-label="Pavilhão"><button data-pav="p01">Pavilhão 01</button><button data-pav="p02">Pavilhão 02 (superior)</button></div>
+      <h2 class="h2" id="pavtitulo">Estandes</h2>
       <p class="intro">Planta do pavilhão com o nome de quem expôs na última feira. As cores mostram como está a renovação de cada espaço para 2027. Toque num estande para ver os detalhes.</p>
       <div class="mstats">
         <div class="mstat s-pendente"><span class="dot"></span><div><p class="mid serif num" data-m="pendente">—</p><p class="label">Aguardando resposta</p></div></div>
@@ -261,7 +266,7 @@ details.lista[open] > summary::after { content: 'Fechar ▴'; }
         <input type="search" id="mbusca" placeholder="Buscar empresa ou estande" aria-label="Buscar estande">
         <div class="zoom"><button id="zmenos" aria-label="Diminuir">−</button><button id="zmais" aria-label="Aumentar">+</button></div>
       </div>
-      <div class="mapwrap" id="mapwrap"><svg id="mapa" role="img" aria-label="Mapa do Pavilhão 01"></svg></div>
+      <div class="mapwrap" id="mapwrap"><svg id="mapa" role="img" aria-label="Mapa do pavilhão"></svg></div>
       <div class="minfo" id="minfo" hidden></div>
     </div>
 
@@ -362,19 +367,21 @@ function render() {
 
 document.getElementById('dias').textContent = int.format(Math.max(0, Math.ceil((new Date('2027-11-11T00:00:00-03:00') - new Date()) / 864e5)));
 
-/* ---------- Mapa do Pavilhão 01 ---------- */
+/* ---------- Mapas dos pavilhões ---------- */
 const SVGNS = 'http://www.w3.org/2000/svg';
 const ST_NOME = { pendente: 'Aguardando resposta', confirmado: 'Confirmado', reservado: 'Reservado', livre: 'Livre (declinou)' };
 const ST_ORDEM = ['confirmado', 'reservado', 'pendente', 'livre'];
-let GEO = null, mapaSel = null, zoom = 1;
+let GEOS = {}, PAV = 'p01', GEO = null, mapaSel = null, zoom = 1;
+const PAVS = { p01: 'mapa_pavilhao01', p02: 'mapa_pavilhao02' };
 const baseW = () => (innerWidth > 900 ? 62 : 100);
 const m2 = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 2 });
 
 function svgEl(tag, attrs, text) { const e = document.createElementNS(SVGNS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; return e; }
-function estadoMapa() {
-  const lista = DADOS.mapa_pavilhao01 || [];
+function estadoMapa(pav = PAV) {
+  const geo = GEOS[pav];
+  const lista = DADOS[PAVS[pav]] || [];
   const por = Object.fromEntries(lista.map((r) => [r.estande, r]));
-  return GEO.estandes.map((g) => {
+  return geo.estandes.map((g) => {
     const r = por[g.id] || {};
     const status = ST_NOME[r.status] ? r.status : 'pendente';
     const nome = status === 'livre' ? '' : (r.expositor_2027 || r.expositor_2025 || '');
@@ -392,25 +399,24 @@ function desenhaMapa(itens) {
   svg.replaceChildren();
   svg.setAttribute('viewBox', `0 0 ${GEO.largura} ${GEO.altura}`);
   // paredes e referências
-  svg.append(svgEl('rect', { class: 'wall', x: 10, y: 60, width: GEO.largura - 30, height: GEO.altura - 80, rx: 6 }));
-  svg.append(svgEl('rect', { class: 'zone', x: 1490, y: 70, width: 160, height: 760 }));
-  svg.append(svgEl('text', { class: 'lbl', x: 1570, y: 450, 'text-anchor': 'middle', transform: 'rotate(-90 1570 450)' }, 'BANHEIROS'));
-  svg.append(svgEl('text', { class: 'lbl', x: 850, y: 40, 'text-anchor': 'middle' }, '▲ PRAÇA DE ALIMENTAÇÃO'));
-  svg.append(svgEl('text', { class: 'lbl', x: 830, y: GEO.altura - 30, 'text-anchor': 'middle' }, '▼ ENTRADA PRINCIPAL'));
+  for (const e of GEO.extras || []) {
+    if (e.t === 'lbl') svg.append(svgEl('text', { class: 'lbl', x: e.x, y: e.y, 'text-anchor': 'middle', 'dominant-baseline': 'middle', 'font-size': e.fs, transform: e.rot ? `rotate(${e.rot} ${e.x} ${e.y})` : '' }, e.txt));
+    else svg.append(svgEl('rect', { class: e.t, x: e.x, y: e.y, width: e.w, height: e.h, rx: 2 }));
+  }
   const q = document.getElementById('mbusca').value.trim().toLowerCase();
   for (const it of itens) {
     const g = svgEl('g', { class: `st s-${it.status}` + (mapaSel === it.id ? ' sel' : ''), 'data-id': it.id, tabindex: 0 });
     if (q && !(it.id.toLowerCase().includes(q) || it.nome.toLowerCase().includes(q) || it.antigo.toLowerCase().includes(q))) g.classList.add('dim');
     g.append(svgEl('rect', { x: it.x, y: it.y, width: it.w, height: it.h, rx: 3, fill: `var(--st-${it.status})` }));
-    const cx = it.x + it.w / 2, fs = Math.min(26, it.w / 4.2);
-    g.append(svgEl('text', { class: 'n', x: cx, y: it.y + fs + 8, 'text-anchor': 'middle', 'font-size': fs }, it.id));
+    const E = GEO.escala, cx = it.x + it.w / 2, fs = Math.min(E * 0.7, it.w / 4.2);
+    g.append(svgEl('text', { class: 'n', x: cx, y: it.y + fs + E * 0.2, 'text-anchor': 'middle', 'font-size': fs }, it.id));
     if (it.nome) {
-      const nfs = Math.max(13, Math.min(17, it.w / 7.5));
+      const nfs = Math.max(E * 0.35, Math.min(E * 0.45, it.w / 7.5));
       const maxc = Math.max(8, Math.floor(it.w / (nfs * 0.56)));
       let linhas = quebra(it.nome, maxc);
-      const cabe = Math.max(1, Math.floor((it.h - fs - 22) / (nfs * 1.15)));
+      const cabe = Math.max(1, Math.floor((it.h - fs - E * 0.6) / (nfs * 1.15)));
       if (linhas.length > cabe) { linhas = linhas.slice(0, cabe); linhas[cabe - 1] = linhas[cabe - 1].replace(/.{0,2}$/, '…'); }
-      const t = svgEl('text', { x: cx, y: it.y + fs + 14 + nfs, 'text-anchor': 'middle', 'font-size': nfs });
+      const t = svgEl('text', { x: cx, y: it.y + fs + E * 0.38 + nfs, 'text-anchor': 'middle', 'font-size': nfs });
       linhas.forEach((ln, i) => t.append(svgEl('tspan', { x: cx, dy: i ? nfs * 1.15 : 0 }, ln)));
       g.append(t);
     }
@@ -433,7 +439,13 @@ function mostraInfo(itens) {
   box.hidden = false;
 }
 function renderMapa() {
-  if (!GEO || !DADOS) return;
+  if (!GEOS.p01 || !DADOS) return;
+  GEO = GEOS[PAV];
+  document.getElementById('pavtitulo').textContent = 'Estandes · ' + GEO.nome;
+  document.querySelectorAll('.pavsel button').forEach((b) => b.setAttribute('aria-selected', b.dataset.pav === PAV));
+  const tot = { confirmado: 0, reservado: 0, total: 0 };
+  for (const p of Object.keys(GEOS)) for (const it of estadoMapa(p)) { tot.total++; if (tot[it.status] != null) tot[it.status]++; }
+  document.querySelectorAll('[data-mt]').forEach((e) => { e.textContent = int.format(tot[e.dataset.mt]); });
   const itens = estadoMapa();
   const c = { pendente: 0, confirmado: 0, reservado: 0, livre: 0 };
   let areaOk = 0, areaTot = 0;
@@ -480,10 +492,13 @@ function setZoom(z) {
 document.getElementById('zmais').addEventListener('click', () => setZoom(zoom + 0.75));
 document.getElementById('zmenos').addEventListener('click', () => setZoom(zoom - 0.75));
 
+document.querySelectorAll('.pavsel button').forEach((b) => b.addEventListener('click', () => { PAV = b.dataset.pav; mapaSel = null; zoom = 1; document.getElementById('mbusca').value = ''; renderMapa(); }));
+
 Promise.all([
   fetch('dados.json?v=' + Date.now(), { cache: 'no-store' }).then((r) => r.json()),
-  fetch('pavilhao01.json?v=2', { cache: 'no-store' }).then((r) => r.json()),
-]).then(([d, geo]) => { DADOS = d; GEO = geo; render(); })
+  fetch('pavilhao01.json?v=3', { cache: 'no-store' }).then((r) => r.json()),
+  fetch('pavilhao02.json?v=3', { cache: 'no-store' }).then((r) => r.json()),
+]).then(([d, g1, g2]) => { DADOS = d; GEOS = { p01: g1, p02: g2 }; render(); })
   .catch(() => { document.getElementById('atualizado').textContent = 'Não foi possível carregar os dados. Tente recarregar a página.'; });
 
 let lastMobile = matchMedia('(max-width: 640px)').matches;
