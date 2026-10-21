@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FAISMO 2027 · Painel</title>
+<meta name="description" content="Acompanhamento da FAISMO 2027: patrocínios, atrações, estandes e planejamento.">
+<meta name="theme-color" content="#0f3d5e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f4f6f8; --panel: #ffffff; --soft: #f0f3f6; --fg: #14202b; --muted: #5b6b7a; --line: #dfe5eb;
+  --brand: #0f3d5e; --brand-fg: #ffffff;
+  --c1: #1f6fb2; --c2: #2e9e6a; --c3: #e0a400;
+  --ok: #1d7f4e; --warn: #b26a00; --bad: #c0392b;
+  --radius: 14px; --shadow: 0 1px 2px rgba(16,32,48,.06), 0 4px 16px rgba(16,32,48,.04);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e151c; --panel: #16202a; --soft: #1c2833; --fg: #e8eef3; --muted: #95a5b4; --line: #26333f;
+    --brand: #123f61; --c1: #5aa6e6; --c2: #4cc58c; --c3: #f0c244;
+    --ok: #4cc58c; --warn: #f0a640; --bad: #ef6b5d; --shadow: none;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-size: 15px; line-height: 1.45; }
+p { margin: 0; }
+.serif { font-family: Fraunces, Georgia, serif; font-weight: 500; letter-spacing: -.01em; }
+.num { font-variant-numeric: tabular-nums; }
+.wrap { max-width: 64rem; margin: 0 auto; padding: 0 16px 48px; }
+
+/* Cabeçalho */
+.hero { background: var(--brand); color: var(--brand-fg); padding: 28px 0 56px; }
+.hero .wrap { padding-bottom: 0; display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.hero h1 { margin: 0; font-size: clamp(30px, 7vw, 44px); line-height: 1; }
+.hero .sub { opacity: .85; margin-top: 6px; font-size: 14px; }
+.hero .date { display: inline-block; margin-top: 12px; font-size: 13px; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.14); }
+.count { text-align: right; }
+.count .n { font-size: clamp(40px, 10vw, 56px); line-height: 1; }
+.count .l { font-size: 13px; opacity: .85; }
+
+/* Abas */
+.tabs-bar { position: sticky; top: 0; z-index: 5; margin-top: -32px; }
+.tabs { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 10px 16px; max-width: 64rem; margin: 0 auto; }
+.tabs::-webkit-scrollbar { display: none; }
+.tabs-bar.stuck { background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.tab { flex: none; appearance: none; font: inherit; font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel); color: var(--muted); cursor: pointer; white-space: nowrap; box-shadow: var(--shadow); }
+.tab[aria-selected="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.page[hidden] { display: none; }
+.stack { display: grid; gap: 14px; margin-top: 8px; }
+
+/* Cartões */
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); }
+.label { font-size: 13px; color: var(--muted); }
+.note { font-size: 13px; color: var(--muted); }
+.h2 { font-size: 18px; font-weight: 600; margin: 0; }
+.intro { color: var(--muted); margin-top: 6px; }
+.big { font-size: clamp(32px, 8vw, 42px); line-height: 1.05; margin: 4px 0 2px; }
+.mid { font-size: 26px; line-height: 1.1; margin-top: 4px; }
+
+.bar { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: var(--soft); margin: 16px 0; gap: 2px; }
+.bar span { height: 100%; }
+.legend { display: grid; gap: 10px; }
+.leg { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: baseline; }
+.sw { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.leg-v { font-weight: 600; text-align: right; }
+.leg-n { grid-column: 2 / 4; font-size: 13px; color: var(--muted); margin-top: -6px; }
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: 14px; }
+.tile { cursor: pointer; display: flex; flex-direction: column; justify-content: space-between; min-height: 120px; text-align: left; font: inherit; color: inherit; }
+.tile:hover { border-color: var(--muted); }
+.go { font-size: 13px; color: var(--c1); margin-top: 10px; font-weight: 500; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); gap: 10px; margin-top: 16px; }
+.stat { background: var(--soft); border-radius: 10px; padding: 10px 14px; }
+.stat .mid { font-size: 20px; }
+
+/* Tabela */
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th { text-align: left; font-size: 12px; color: var(--muted); font-weight: 500; padding: 6px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; text-transform: uppercase; letter-spacing: .03em; }
+td { padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+.r { text-align: right; white-space: nowrap; }
+td.main { font-weight: 600; }
+td.long { color: var(--muted); font-size: 13px; max-width: 22rem; }
+.empty { color: var(--muted); text-align: center; padding: 28px 10px; }
+.pill { display: inline-block; font-size: 12px; font-weight: 500; padding: 2px 10px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.ok { color: var(--ok); } .warn { color: var(--warn); } .bad { color: var(--bad); }
+.foot { text-align: center; color: var(--muted); font-size: 12px; margin-top: 28px; }
+
+@media (max-width: 640px) {
+  .hero .wrap { flex-direction: column; align-items: flex-start; }
+  .count { text-align: left; display: flex; align-items: baseline; gap: 8px; }
+  .count .n { font-size: 40px; }
+  .card { padding: 16px; }
+  .tiles { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .tile { min-height: 110px; }
+  thead { display: none; }
+  table, tbody { display: block; }
+  tr { display: grid; gap: 6px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  tr:first-child { padding-top: 0; }
+  tr:last-child { border-bottom: 0; padding-bottom: 0; }
+  td { display: flex; justify-content: space-between; gap: 14px; border: 0; padding: 0; text-align: right; max-width: none !important; }
+  td::before { content: attr(data-label); color: var(--muted); font-size: 13px; font-weight: 400; text-align: left; flex: none; }
+  td.main { font-size: 17px; justify-content: flex-start; text-align: left; }
+  td.main::before { display: none; }
+  td.long { display: block; text-align: left; background: var(--soft); border-radius: 8px; padding: 10px; margin-top: 2px; }
+  td.long::before { display: block; margin-bottom: 2px; }
+  .empty { display: block; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <h1 class="serif">FAISMO 2027</h1>
+      <p class="sub">Feira Multissetorial de São Miguel do Oeste</p>
+      <span class="date">11 a 15 de novembro de 2027</span>
+    </div>
+    <div class="count">
+      <div class="n serif num" id="dias">—</div>
+      <div class="l">dias para a abertura</div>
+    </div>
+  </div>
+</header>
+
+<div class="tabs-bar" id="tabsbar">
+  <nav class="tabs" role="tablist" aria-label="Seções">
+    <button class="tab" role="tab" data-page="resumo">Resumo</button>
+    <button class="tab" role="tab" data-page="rouanet">Lei Rouanet</button>
+    <button class="tab" role="tab" data-page="privados">Patrocínios privados</button>
+    <button class="tab" role="tab" data-page="atracoes">Atrações</button>
+    <button class="tab" role="tab" data-page="estandes">Estandes</button>
+    <button class="tab" role="tab" data-page="planejamento">Em planejamento</button>
+  </nav>
+</div>
+
+<main class="wrap">
+
+  <section class="page stack" id="resumo">
+    <div class="card">
+      <p class="label">Total captado em patrocínios</p>
+      <p class="big serif num" data-k="patrocinio_total">—</p>
+      <p class="note">Lei Rouanet + patrocínios privados (dinheiro e permuta)</p>
+      <div class="bar" id="barra"></div>
+      <div class="legend">
+        <div class="leg"><span class="sw" style="background:var(--c1)"></span><span>Lei Rouanet</span><span class="leg-v num" data-k="rouanet_total">—</span>
+          <span class="leg-n"><span data-k="rouanet_qtd">—</span> depósito(s) na conta do projeto</span></div>
+        <div class="leg"><span class="sw" style="background:var(--c2)"></span><span>Privados em dinheiro</span><span class="leg-v num" data-k="privados_especie">—</span></div>
+        <div class="leg"><span class="sw" style="background:var(--c3)"></span><span>Privados em permuta</span><span class="leg-v num" data-k="privados_permuta">—</span>
+          <span class="leg-n">Pago em produtos ou serviços, não entra no caixa</span></div>
+      </div>
+    </div>
+
+    <div class="tiles">
+      <button class="card tile" data-go="privados"><div><p class="label">Patrocinadores privados</p><p class="mid serif num" data-k="privados_qtd">—</p></div><p class="go">Ver patrocínios →</p></button>
+      <button class="card tile" data-go="atracoes"><div><p class="label">Atrações confirmadas</p><p class="mid serif num" data-k="atracoes_qtd">—</p></div><p class="go">Ver programação →</p></button>
+      <button class="card tile" data-go="estandes"><div><p class="label">Estandes vendidos</p><p class="mid serif num" data-k="estandes_qtd">—</p><p class="note num" data-k="estandes_total">—</p></div><p class="go">Ver expositores →</p></button>
+      <button class="card tile" data-go="planejamento"><div><p class="label">Itens em planejamento</p><p class="mid serif num" data-k="planejamento_abertos">—</p></div><p class="go">Ver pendências →</p></button>
+    </div>
+
+    <div class="card">
+      <h2 class="h2">Como ler este painel</h2>
+      <p class="intro">Toque nas abas acima para ver o detalhe de cada frente. As cores mostram a situação de cada item:</p>
+      <p class="intro"><span class="pill ok">Pago / Confirmado</span> <span class="pill warn">A receber / Aguardando</span> <span class="pill bad">Cancelado</span></p>
+    </div>
+  </section>
+
+  <section class="page stack" id="rouanet" hidden>
+    <div class="card">
+      <h2 class="h2">Patrocínios via Lei Rouanet</h2>
+      <p class="intro">Empresas tributadas pelo lucro real podem destinar parte do Imposto de Renda devido ao projeto cultural da FAISMO, aprovado na Lei de Incentivo à Cultura. Cada item abaixo é um depósito feito na conta do projeto.</p>
+      <div class="stats">
+        <div class="stat"><p class="label">Total depositado</p><p class="mid serif num" data-k="rouanet_total">—</p></div>
+        <div class="stat"><p class="label">Depósitos</p><p class="mid serif num" data-k="rouanet_qtd">—</p></div>
+        <div class="stat"><p class="label">Empresas</p><p class="mid serif num" data-k="rouanet_empresas">—</p></div>
+      </div>
+    </div>
+    <div class="card"><table id="t-rouanet"></table></div>
+  </section>
+
+  <section class="page stack" id="privados" hidden>
+    <div class="card">
+      <h2 class="h2">Patrocínios privados</h2>
+      <p class="intro">Cotas fechadas direto com as empresas. <b>Dinheiro</b> é o valor pago em espécie; <b>permuta</b> é o valor pago em produtos ou serviços para a feira.</p>
+      <div class="stats">
+        <div class="stat"><p class="label">Total das cotas</p><p class="mid serif num" data-k="privados_total">—</p></div>
+        <div class="stat"><p class="label">Em dinheiro</p><p class="mid serif num" data-k="privados_especie">—</p></div>
+        <div class="stat"><p class="label">Em permuta</p><p class="mid serif num" data-k="privados_permuta">—</p></div>
+      </div>
+    </div>
+    <div class="card"><table id="t-privados"></table></div>
+  </section>
+
+  <section class="page stack" id="atracoes" hidden>
+    <div class="card">
+      <h2 class="h2">Atrações confirmadas</h2>
+      <p class="intro">Shows e apresentações com contrato fechado, na ordem da programação.</p>
+      <div class="stats"><div class="stat"><p class="label">Atrações confirmadas</p><p class="mid serif num" data-k="atracoes_qtd">—</p></div></div>
+    </div>
+    <div class="card"><table id="t-atracoes"></table></div>
+  </section>
+
+  <section class="page stack" id="estandes" hidden>
+    <div class="card">
+      <h2 class="h2">Comercialização de estandes</h2>
+      <p class="intro">Espaços vendidos para expositores da feira, com o valor de cada estande.</p>
+      <div class="stats">
+        <div class="stat"><p class="label">Estandes vendidos</p><p class="mid serif num" data-k="estandes_qtd">—</p></div>
+        <div class="stat"><p class="label">Valor em vendas</p><p class="mid serif num" data-k="estandes_total">—</p></div>
+      </div>
+    </div>
+    <div class="card"><table id="t-estandes"></table></div>
+  </section>
+
+  <section class="page stack" id="planejamento" hidden>
+    <div class="card">
+      <h2 class="h2">Em planejamento</h2>
+      <p class="intro">Ideias e ações que ainda dependem de orçamento, negociação ou definição antes de entrar na programação.</p>
+      <div class="stats"><div class="stat"><p class="label">Itens em aberto</p><p class="mid serif num" data-k="planejamento_abertos">—</p></div></div>
+    </div>
+    <div class="card"><table id="t-planejamento"></table></div>
+  </section>
+
+  <p class="foot" id="atualizado">Carregando dados…</p>
+</main>
+
+<script>
+const brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+const int = new Intl.NumberFormat('pt-BR');
+const dataBR = (s) => { const m = String(s || '').match(/^(\d{4})-(\d{2})-(\d{2})/); return m ? `${m[3]}/${m[2]}/${m[1]}` : (s || ''); };
+const money = (x) => x === '' || x == null ? '' : brl.format(Number(x) || 0);
+const pill = (s) => /pago|confirm|vendid|conclu|recebid|assinad/i.test(s) ? 'ok' : /cancel|desist/i.test(s) ? 'bad' : 'warn';
+
+const TABELAS = {
+  rouanet: { main: 'empresa', vazio: 'Nenhum depósito registrado ainda.', sort: 'data', cols: [
+    ['empresa', 'Empresa'], ['data', 'Data do depósito', dataBR], ['valor', 'Valor', money, 'r'], ['observacao', 'Observação', null, 'long']] },
+  privados: { main: 'empresa', vazio: 'Nenhum patrocinador privado registrado ainda.', cols: [
+    ['empresa', 'Empresa'], ['cota', 'Cota'], ['valor', 'Total', money, 'r'], ['especie', 'Dinheiro', money, 'r'],
+    ['permuta', 'Permuta', money, 'r'], ['status', 'Situação'], ['contrapartida', 'Detalhes', null, 'long']] },
+  atracoes: { main: 'atracao', vazio: 'Nenhuma atração confirmada ainda.', sort: 'data', cols: [
+    ['atracao', 'Atração'], ['data', 'Dia', dataBR], ['horario', 'Horário'], ['palco', 'Palco / local'], ['status', 'Situação']] },
+  estandes: { main: 'expositor', vazio: 'Nenhum estande vendido ainda.', cols: [
+    ['expositor', 'Expositor'], ['estande', 'Estande'], ['setor', 'Setor'], ['area_m2', 'Área (m²)', (x) => x ? int.format(x) : '', 'r'],
+    ['valor', 'Valor', money, 'r'], ['status', 'Situação']] },
+  planejamento: { main: 'item', vazio: 'Nenhum item em planejamento ainda.', cols: [
+    ['item', 'Item'], ['status', 'Situação'], ['responsavel', 'Responsável'], ['prazo', 'Prazo', dataBR]] },
+};
+
+function el(tag, cls, text) { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+function tabela(id, rows) {
+  const cfg = TABELAS[id], t = document.getElementById('t-' + id);
+  t.replaceChildren();
+  const thead = el('thead'), hr = el('tr');
+  cfg.cols.forEach(([, label, , cls]) => hr.append(el('th', cls === 'r' ? 'r' : '', label)));
+  thead.append(hr); t.append(thead);
+  const tb = el('tbody');
+  if (!rows.length) {
+    const tr = el('tr'), td = el('td', 'empty', cfg.vazio); td.colSpan = cfg.cols.length; tr.append(td); tb.append(tr);
+  }
+  const list = cfg.sort ? [...rows].sort((a, b) => String(a[cfg.sort] || '').localeCompare(String(b[cfg.sort] || ''))) : rows;
+  const mobile = matchMedia('(max-width: 640px)').matches;
+  for (const r of list) {
+    const tr = el('tr');
+    for (const [f, label, fmt, cls] of cfg.cols) {
+      const raw = r[f] ?? '';
+      if (raw === '' && f !== cfg.main && mobile) continue;
+      const td = el('td', [cls, f === cfg.main ? 'main' : ''].filter(Boolean).join(' '));
+      td.dataset.label = label;
+      if (f === 'status' && raw) td.append(el('span', 'pill ' + pill(raw), raw));
+      else td.textContent = fmt ? fmt(raw) : raw;
+      tr.append(td);
+    }
+    tb.append(tr);
+  }
+  t.append(tb);
+}
+
+let DADOS = null;
+function render() {
+  const d = DADOS;
+  const n = (x) => Number(x) || 0, sum = (rows, f) => rows.reduce((s, r) => s + n(r[f]), 0);
+  const estAtivos = d.estandes.filter((r) => !/cancel/i.test(r.status || ''));
+  const k = {
+    rouanet_total: sum(d.rouanet, 'valor'), rouanet_qtd: d.rouanet.length,
+    rouanet_empresas: new Set(d.rouanet.map((r) => String(r.empresa).trim().toLowerCase())).size,
+    privados_total: sum(d.privados, 'valor'), privados_qtd: d.privados.length,
+    privados_especie: sum(d.privados, 'especie'), privados_permuta: sum(d.privados, 'permuta'),
+    atracoes_qtd: d.atracoes.length, estandes_qtd: estAtivos.length, estandes_total: sum(estAtivos, 'valor'),
+    planejamento_abertos: d.planejamento.filter((r) => !/conclu/i.test(r.status || '')).length,
+  };
+  k.patrocinio_total = k.rouanet_total + k.privados_total;
+  document.querySelectorAll('[data-k]').forEach((e) => {
+    const f = e.dataset.k; e.textContent = /_(total|especie|permuta)$/.test(f) ? brl.format(k[f]) : int.format(k[f]);
+  });
+  const bar = document.getElementById('barra'); bar.replaceChildren();
+  if (k.patrocinio_total > 0) [[k.rouanet_total, '--c1'], [k.privados_especie, '--c2'], [k.privados_permuta, '--c3']].forEach(([v, c]) => {
+    if (v > 0) { const s = el('span'); s.style.width = (v / k.patrocinio_total * 100) + '%'; s.style.background = `var(${c})`; bar.append(s); }
+  });
+  Object.keys(TABELAS).forEach((id) => tabela(id, d[id] || []));
+  if (d.atualizado_em) {
+    const dt = new Date(d.atualizado_em);
+    document.getElementById('atualizado').textContent = 'Atualizado em ' + dt.toLocaleDateString('pt-BR') + ' às ' + dt.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+  }
+}
+
+document.getElementById('dias').textContent = int.format(Math.max(0, Math.ceil((new Date('2027-11-11T00:00:00-03:00') - new Date()) / 864e5)));
+
+fetch('dados.json?v=' + Date.now(), { cache: 'no-store' })
+  .then((r) => r.json()).then((d) => { DADOS = d; render(); })
+  .catch(() => { document.getElementById('atualizado').textContent = 'Não foi possível carregar os dados. Tente recarregar a página.'; });
+
+let lastMobile = matchMedia('(max-width: 640px)').matches;
+addEventListener('resize', () => { const m = matchMedia('(max-width: 640px)').matches; if (m !== lastMobile && DADOS) { lastMobile = m; render(); } });
+
+const tabs = [...document.querySelectorAll('.tab')];
+function show(page, scroll) {
+  if (!tabs.some((t) => t.dataset.page === page)) page = 'resumo';
+  document.querySelectorAll('.page').forEach((s) => { s.hidden = s.id !== page; });
+  tabs.forEach((t) => {
+    const on = t.dataset.page === page; t.setAttribute('aria-selected', on);
+    if (on) { const nav = t.parentElement; nav.scrollLeft = t.offsetLeft - (nav.clientWidth - t.offsetWidth) / 2; }
+  });
+  history.replaceState(null, '', page === 'resumo' ? location.pathname : '#' + page);
+  if (scroll) document.getElementById('tabsbar').scrollIntoView({ behavior: 'smooth' });
+}
+tabs.forEach((t) => t.addEventListener('click', () => show(t.dataset.page, scrollY > 200)));
+document.querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => show(b.dataset.go, true)));
+show(location.hash.slice(1));
+
+const bar = document.getElementById('tabsbar');
+new IntersectionObserver(([e]) => bar.classList.toggle('stuck', e.intersectionRatio < 1), { threshold: [1], rootMargin: '-1px 0px 0px 0px' }).observe(bar);
+</script>
+</body>
+</html>

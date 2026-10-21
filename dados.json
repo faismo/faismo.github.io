@@ -1,0 +1,25 @@
+{
+  "atualizado_em": "2026-10-21T10:20:00-03:00",
+  "rouanet": [
+    { "data": "2026-06-29", "empresa": "Bonno", "valor": 14273.45, "observacao": "" },
+    { "data": "2026-09-22", "empresa": "Torfresma", "valor": 50000.00, "observacao": "" },
+    { "data": "2026-09-30", "empresa": "Bonno", "valor": 12888.19, "observacao": "" },
+    { "data": "2026-10-20", "empresa": "Alfa", "valor": 50000.00, "observacao": "" }
+  ],
+  "privados": [
+    {
+      "empresa": "Unimed",
+      "cota": "Patrocínio master",
+      "valor": 70000.00,
+      "especie": 10000.00,
+      "permuta": 60000.00,
+      "contrapartida": "Permuta: ambulância com socorrista e enfermeira durante toda a feira. Estande pago à parte.",
+      "status": "A receber"
+    }
+  ],
+  "atracoes": [],
+  "estandes": [],
+  "planejamento": [
+    { "item": "Rodeio country com César Paraná", "responsavel": "", "prazo": "", "status": "Aguardando orçamento" }
+  ]
+}
