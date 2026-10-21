@@ -112,8 +112,9 @@ td.long { color: var(--muted); font-size: 13px; max-width: 22rem; }
 .mapwrap { overflow: auto; border-radius: 10px; background: var(--map-bg); max-height: 78vh; -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y; }
 #mapa { display: block; width: 100%; height: auto; margin: 0 auto; }
 #mapa rect { vector-effect: non-scaling-stroke; }
-#mapa .st rect { stroke: var(--st-line); stroke-width: 1; cursor: pointer; transition: opacity .2s; }
-#mapa .st.sel rect { stroke: var(--fg); stroke-width: 3; }
+#mapa polygon { vector-effect: non-scaling-stroke; }
+#mapa .st rect, #mapa .st polygon { stroke: var(--st-line); stroke-width: 1; cursor: pointer; transition: opacity .2s; }
+#mapa .st.sel rect, #mapa .st.sel polygon { stroke: var(--fg); stroke-width: 3; }
 #mapa .st.dim { opacity: .18; }
 #mapa .st text { pointer-events: none; fill: #1a2530; font-family: Inter, system-ui, sans-serif; }
 #mapa .st .n { font-weight: 700; }
@@ -205,7 +206,7 @@ details.lista[open] > summary::after { content: 'Fechar ▴'; }
     <div class="tiles">
       <button class="card tile" data-go="privados"><div><p class="label">Patrocinadores privados</p><p class="mid serif num" data-k="privados_qtd">—</p></div><p class="go">Ver patrocínios →</p></button>
       <button class="card tile" data-go="atracoes"><div><p class="label">Atrações confirmadas</p><p class="mid serif num" data-k="atracoes_qtd">—</p></div><p class="go">Ver programação →</p></button>
-      <button class="card tile" data-go="estandes"><div><p class="label">Estandes confirmados</p><p class="mid serif num"><span data-mt="confirmado">—</span><span class="note"> de <span data-mt="total">—</span></span></p><p class="note"><span data-mt="reservado">—</span> reservado(s) · Pav. 01 e 02</p></div><p class="go">Ver mapa →</p></button>
+      <button class="card tile" data-go="estandes"><div><p class="label">Estandes confirmados</p><p class="mid serif num"><span data-mt="confirmado">—</span><span class="note"> de <span data-mt="total">—</span></span></p><p class="note"><span data-mt="reservado">—</span> reservado(s) · toda a feira</p></div><p class="go">Ver mapa →</p></button>
       <button class="card tile" data-go="planejamento"><div><p class="label">Itens em planejamento</p><p class="mid serif num" data-k="planejamento_abertos">—</p></div><p class="go">Ver pendências →</p></button>
     </div>
 
@@ -248,7 +249,7 @@ details.lista[open] > summary::after { content: 'Fechar ▴'; }
 
   <section class="page stack" id="estandes" hidden>
     <div class="card">
-      <div class="pavsel" role="tablist" aria-label="Pavilhão"><button data-pav="p01">Pavilhão 01</button><button data-pav="p02">Pavilhão 02 (superior)</button></div>
+      <div class="pavsel" role="tablist" aria-label="Pavilhão"><button data-pav="p01">Pavilhão 01</button><button data-pav="p02">Pavilhão 02</button><button data-pav="p03">Pavilhão 03</button><button data-pav="p04">Pavilhão 04</button><button data-pav="p06">Praça de Alimentação</button><button data-pav="ext">Área externa</button></div>
       <h2 class="h2" id="pavtitulo">Estandes</h2>
       <p class="intro">Planta do pavilhão com o nome de quem expôs na última feira. As cores mostram como está a renovação de cada espaço para 2027. Toque num estande para ver os detalhes.</p>
       <div class="mstats">
@@ -258,7 +259,7 @@ details.lista[open] > summary::after { content: 'Fechar ▴'; }
         <div class="mstat s-livre"><span class="dot"></span><div><p class="mid serif num" data-m="livre">—</p><p class="label">Livres (declinaram)</p></div></div>
       </div>
       <div class="mprog" id="mprog"></div>
-      <p class="note"><span data-m="area_ok">—</span> m² confirmados ou reservados, de <span data-m="area_total">—</span> m² no pavilhão</p>
+      <p class="note" id="mareas"><span data-m="area_ok">—</span> m² confirmados ou reservados, de <span data-m="area_total">—</span> m² no pavilhão</p>
     </div>
 
     <div class="card mapcard">
@@ -372,7 +373,7 @@ const SVGNS = 'http://www.w3.org/2000/svg';
 const ST_NOME = { pendente: 'Aguardando resposta', confirmado: 'Confirmado', reservado: 'Reservado', livre: 'Livre (declinou)' };
 const ST_ORDEM = ['confirmado', 'reservado', 'pendente', 'livre'];
 let GEOS = {}, PAV = 'p01', GEO = null, mapaSel = null, zoom = 1;
-const PAVS = { p01: 'mapa_pavilhao01', p02: 'mapa_pavilhao02' };
+const PAVS = { p01: 'mapa_pavilhao01', p02: 'mapa_pavilhao02', p03: 'mapa_pavilhao03', p04: 'mapa_pavilhao04', p06: 'mapa_pavilhao06', ext: 'mapa_externo' };
 const baseW = () => (innerWidth > 900 ? 62 : 100);
 const m2 = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 2 });
 
@@ -381,7 +382,9 @@ function estadoMapa(pav = PAV) {
   const geo = GEOS[pav];
   const lista = DADOS[PAVS[pav]] || [];
   const por = Object.fromEntries(lista.map((r) => [r.estande, r]));
-  return geo.estandes.map((g) => {
+  return geo.estandes.map((g0) => {
+    let g = g0;
+    if (g0.pts) { const xs = g0.pts.map((p) => p[0]), ys = g0.pts.map((p) => p[1]); g = { ...g0, x: Math.min(...xs), y: Math.min(...ys), w: Math.max(...xs) - Math.min(...xs), h: Math.max(...ys) - Math.min(...ys) }; }
     const r = por[g.id] || {};
     const status = ST_NOME[r.status] ? r.status : 'pendente';
     const nome = status === 'livre' ? '' : (r.expositor_2027 || r.expositor_2025 || '');
@@ -398,6 +401,7 @@ function desenhaMapa(itens) {
   const svg = document.getElementById('mapa');
   svg.replaceChildren();
   svg.setAttribute('viewBox', `0 0 ${GEO.largura} ${GEO.altura}`);
+  if (GEO.fundo) svg.append(svgEl('image', { href: GEO.fundo.src, x: 0, y: 0, width: GEO.fundo.w, height: GEO.fundo.h, preserveAspectRatio: 'none' }));
   // paredes e referências
   for (const e of GEO.extras || []) {
     if (e.t === 'lbl') svg.append(svgEl('text', { class: 'lbl', x: e.x, y: e.y, 'text-anchor': 'middle', 'dominant-baseline': 'middle', 'font-size': e.fs, transform: e.rot ? `rotate(${e.rot} ${e.x} ${e.y})` : '' }, e.txt));
@@ -407,6 +411,19 @@ function desenhaMapa(itens) {
   for (const it of itens) {
     const g = svgEl('g', { class: `st s-${it.status}` + (mapaSel === it.id ? ' sel' : ''), 'data-id': it.id, tabindex: 0 });
     if (q && !(it.id.toLowerCase().includes(q) || it.nome.toLowerCase().includes(q) || it.antigo.toLowerCase().includes(q))) g.classList.add('dim');
+    if (it.pts) {
+      g.append(svgEl('polygon', { points: it.pts.map((p) => p.join(',')).join(' '), fill: `var(--st-${it.status})` }));
+      const fs = it.fs * 0.95;
+      g.append(svgEl('text', { class: 'n', x: it.lx, y: it.ly, 'text-anchor': 'middle', 'dominant-baseline': 'middle', 'font-size': fs }, it.id));
+      if (it.nome && it.w > fs * 6 && it.h > fs * 2.6) {
+        const nfs = fs * 0.42, linhas = quebra(it.nome, Math.floor(it.w * 0.8 / (nfs * 0.56))).slice(0, 2);
+        const t = svgEl('text', { x: it.lx, y: it.ly + fs * 0.85, 'text-anchor': 'middle', 'font-size': nfs });
+        linhas.forEach((ln, i) => t.append(svgEl('tspan', { x: it.lx, dy: i ? nfs * 1.15 : 0 }, ln)));
+        g.append(t);
+      }
+      svg.append(g);
+      continue;
+    }
     g.append(svgEl('rect', { x: it.x, y: it.y, width: it.w, height: it.h, rx: 3, fill: `var(--st-${it.status})` }));
     const E = GEO.escala, cx = it.x + it.w / 2, fs = Math.min(E * 0.7, it.w / 4.2);
     g.append(svgEl('text', { class: 'n', x: cx, y: it.y + fs + E * 0.2, 'text-anchor': 'middle', 'font-size': fs }, it.id));
@@ -432,7 +449,8 @@ function mostraInfo(itens) {
   const t = el('div', 't'); t.append(el('b', '', 'Estande ' + it.id), el('span', 'pill ' + ({ confirmado: 'ok', reservado: 'warn', livre: '', pendente: 'warn' }[it.status]), ST_NOME[it.status]));
   const x = el('button', 'x', '×'); x.setAttribute('aria-label', 'Fechar'); x.addEventListener('click', () => selecionar(null)); t.append(x);
   box.append(t);
-  box.append(el('p', 'note', 'Área: ' + m2.format(it.area) + ' m²'));
+  if (it.area) box.append(el('p', 'note', 'Área: ' + m2.format(it.area) + ' m²'));
+  box.append(el('p', 'note', GEO.nome));
   if (it.novo) box.append(el('p', '', 'Expositor 2027: ' + it.novo));
   if (it.antigo) box.append(el('p', 'note', 'Na última feira: ' + it.antigo));
   if (it.obs) box.append(el('p', 'note', it.obs));
@@ -451,6 +469,7 @@ function renderMapa() {
   let areaOk = 0, areaTot = 0;
   for (const it of itens) { c[it.status]++; areaTot += it.area; if (it.status === 'confirmado' || it.status === 'reservado') areaOk += it.area; }
   const vals = { ...c, total: itens.length, area_ok: m2.format(areaOk), area_total: m2.format(areaTot) };
+  document.getElementById('mareas').hidden = !areaTot;
   document.querySelectorAll('[data-m]').forEach((e) => { const v = vals[e.dataset.m]; e.textContent = typeof v === 'number' ? int.format(v) : v; });
   const prog = document.getElementById('mprog'); prog.replaceChildren();
   ST_ORDEM.forEach((s) => { if (c[s]) { const sp = el('span'); sp.style.width = (c[s] / itens.length * 100) + '%'; sp.style.background = `var(--st-${s})`; if (s === 'livre') sp.style.boxShadow = 'inset 0 0 0 1px var(--st-line)'; prog.append(sp); } });
@@ -496,9 +515,8 @@ document.querySelectorAll('.pavsel button').forEach((b) => b.addEventListener('c
 
 Promise.all([
   fetch('dados.json?v=' + Date.now(), { cache: 'no-store' }).then((r) => r.json()),
-  fetch('pavilhao01.json?v=3', { cache: 'no-store' }).then((r) => r.json()),
-  fetch('pavilhao02.json?v=3', { cache: 'no-store' }).then((r) => r.json()),
-]).then(([d, g1, g2]) => { DADOS = d; GEOS = { p01: g1, p02: g2 }; render(); })
+  ...Object.keys(PAVS).map((k) => fetch('pavilhao' + k.slice(1).replace('xt', 'ext') + '.json?v=4', { cache: 'no-store' }).then((r) => r.json())),
+]).then(([d, ...gs]) => { DADOS = d; Object.keys(PAVS).forEach((k, i) => { GEOS[k] = gs[i]; }); render(); })
   .catch(() => { document.getElementById('atualizado').textContent = 'Não foi possível carregar os dados. Tente recarregar a página.'; });
 
 let lastMobile = matchMedia('(max-width: 640px)').matches;

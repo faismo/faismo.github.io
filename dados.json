@@ -1,5 +1,5 @@
 {
- "atualizado_em": "2026-10-21T14:30:00-03:00",
+ "atualizado_em": "2026-10-21T15:30:00-03:00",
  "rouanet": [
   {
    "data": "2026-06-29",
@@ -1039,6 +1039,1078 @@
   {
    "estande": "PREF",
    "expositor_2025": "Prefeitura",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  }
+ ],
+ "mapa_pavilhao03": [
+  {
+   "estande": "01",
+   "expositor_2025": "Fama Churrasqueiras",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "02",
+   "expositor_2025": "Dalcar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "03",
+   "expositor_2025": "Dalcar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "04",
+   "expositor_2025": "Sicoob",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "05",
+   "expositor_2025": "Polícia Civil",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "06",
+   "expositor_2025": "Polícia Militar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "07",
+   "expositor_2025": "Agostini Industrial",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "07.1",
+   "expositor_2025": "Agostini Industrial",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "08",
+   "expositor_2025": "Agostini Industrial",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "09",
+   "expositor_2025": "Dalcar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "09.1",
+   "expositor_2025": "Dalcar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "10",
+   "expositor_2025": "Clube de Tiro",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "11",
+   "expositor_2025": "Torfresma",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "12",
+   "expositor_2025": "Torfresma",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "13",
+   "expositor_2025": "Saúde SMO",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "14",
+   "expositor_2025": "Big John",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "15",
+   "expositor_2025": "Tenda Decor",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  }
+ ],
+ "mapa_pavilhao04": [
+  {
+   "estande": "01",
+   "expositor_2025": "Arte e Bordados Pinhal",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "02",
+   "expositor_2025": "Artesanato Novo Amanhã",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "03",
+   "expositor_2025": "Artesanato Novo Amanhã",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "04",
+   "expositor_2025": "D' Cor Patch Ateliê",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "05",
+   "expositor_2025": "D' Cor Patch Ateliê",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "06",
+   "expositor_2025": "ACASMO",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "07",
+   "expositor_2025": "Receitas com Panos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "08",
+   "expositor_2025": "Marli Biscuit",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "09",
+   "expositor_2025": "Ateliê Artes da Salete",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "10",
+   "expositor_2025": "Esparço da Arte",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "11",
+   "expositor_2025": "Maia Aparecida Back",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "12",
+   "expositor_2025": "Espaço Criativo",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "13",
+   "expositor_2025": "Cozinha Maluca",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "14",
+   "expositor_2025": "Mundo Encantado",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "15",
+   "expositor_2025": "Legna Decor",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "16",
+   "expositor_2025": "CP Studio de Beleza",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "17",
+   "expositor_2025": "Globo Biju",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "18",
+   "expositor_2025": "Chapecó Brinquedos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "19",
+   "expositor_2025": "Caravana do Marrocos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "20",
+   "expositor_2025": "Cadiles Esportes",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "21",
+   "expositor_2025": "Mimo Infantil",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "22",
+   "expositor_2025": "Diamante Rosa",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "23",
+   "expositor_2025": "Zero1 Clothing",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "24",
+   "expositor_2025": "Salão Essencial",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "25",
+   "expositor_2025": "Perfumaria Belltok",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "26",
+   "expositor_2025": "Artesania A&B Porcelanatos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "27",
+   "expositor_2025": "Jojoca Ateliê",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "28",
+   "expositor_2025": "Dona Ideia",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "29",
+   "expositor_2025": "Dlwood Arte em Madeira e Resina",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "30",
+   "expositor_2025": "Artgs",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "31",
+   "expositor_2025": "Pastoral da Criança",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "32",
+   "expositor_2025": "Velas da Dani",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "33",
+   "expositor_2025": "Ateliê Cores ao Mundo",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "34",
+   "expositor_2025": "AK Artesanatos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  }
+ ],
+ "mapa_pavilhao06": [
+  {
+   "estande": "01",
+   "expositor_2025": "Muita Carne SMS",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "02",
+   "expositor_2025": "Kika Restaurante",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "03",
+   "expositor_2025": "Bendito Lanche",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "04",
+   "expositor_2025": "Rama Eventos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "05",
+   "expositor_2025": "Bar da Esquina",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "06",
+   "expositor_2025": "Ice Palestas / Paleteria Mexicana",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "07",
+   "expositor_2025": "JR Wood",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "08",
+   "expositor_2025": "JR Wood",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "09",
+   "expositor_2025": "Setessete Bar e Bilhar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "10",
+   "expositor_2025": "Chaplin Eventos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "11",
+   "expositor_2025": "Flow",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "12",
+   "expositor_2025": "Chaplin Eventos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  }
+ ],
+ "mapa_externo": [
+  {
+   "estande": "00",
+   "expositor_2025": "Quiosque do Sorvete Italiano e Açaí",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "03",
+   "expositor_2025": "Tytan Agriculture",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "04",
+   "expositor_2025": "AgroSchmitz",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "06",
+   "expositor_2025": "Criadouro JJ",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "07",
+   "expositor_2025": "Agromarau",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "08",
+   "expositor_2025": "Lacticínios Tirol",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "09",
+   "expositor_2025": "Agropecuária Ouro Branco",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "10",
+   "expositor_2025": "Cooperativa Regional Auriverde",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "11",
+   "expositor_2025": "Balanças Olibox",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "12",
+   "expositor_2025": "Oeste Milk",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "15",
+   "expositor_2025": "Playgrill",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "16",
+   "expositor_2025": "",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "16.1",
+   "expositor_2025": "Food Truck do Torresmo",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "16.2",
+   "expositor_2025": "Food Truck do Torresmo",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "16.3",
+   "expositor_2025": "Bolfe",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "17",
+   "expositor_2025": "JW Representações",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "18",
+   "expositor_2025": "Ezequiel Maciel Ferraz",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "19",
+   "expositor_2025": "Florestal JP",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "20",
+   "expositor_2025": "Cresol SMOeste",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "23",
+   "expositor_2025": "Picolotto",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "23.1",
+   "expositor_2025": "Casa & Jardim",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "24",
+   "expositor_2025": "RK Energia Solar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "25",
+   "expositor_2025": "Escola do Chimarrão",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "28",
+   "expositor_2025": "Central das Capas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "29",
+   "expositor_2025": "Fornari Impermeabilização",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "30",
+   "expositor_2025": "TriDelivery",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "31",
+   "expositor_2025": "Imobil Bilhares",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "32",
+   "expositor_2025": "Yume Sushi",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "33",
+   "expositor_2025": "Geferson Machado Faria",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "34",
+   "expositor_2025": "Prigiu Bonsai e Flores",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "37",
+   "expositor_2025": "Avantpar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "38",
+   "expositor_2025": "Odontotop Franchising",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "39",
+   "expositor_2025": "Hermes Esq. & Madeira Plástica",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "40",
+   "expositor_2025": "Eucatrat",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "41",
+   "expositor_2025": "Sicredi",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "42",
+   "expositor_2025": "Santapedra",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "43",
+   "expositor_2025": "Itamar Multimarcas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "44",
+   "expositor_2025": "Ecker Automóveis",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "45",
+   "expositor_2025": "Banco do Brasil",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "46",
+   "expositor_2025": "Banco do Brasil",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "47",
+   "expositor_2025": "Agricultura Familiar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "48",
+   "expositor_2025": "Agricultura Familiar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "49",
+   "expositor_2025": "Agricultura Familiar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "50",
+   "expositor_2025": "Agricultura Familiar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "51",
+   "expositor_2025": "Agricultura Familiar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "52",
+   "expositor_2025": "Agricultura Familiar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "53",
+   "expositor_2025": "Agricultura Familiar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "54",
+   "expositor_2025": "Agricultura Familiar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "55",
+   "expositor_2025": "Agricultura Familiar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "57",
+   "expositor_2025": "Frutas Exóticas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "58",
+   "expositor_2025": "Casa do Papai Joel",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "59",
+   "expositor_2025": "Meneguzzo Veículos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "62",
+   "expositor_2025": "Caixa Econômica Federal",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "63",
+   "expositor_2025": "Caixa Econômica Federal",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "64",
+   "expositor_2025": "Caixa Econômica Federal",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "65",
+   "expositor_2025": "",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "66",
+   "expositor_2025": "GAP Mobilidades Elétricas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "67",
+   "expositor_2025": "SMO Escavações",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "68",
+   "expositor_2025": "De Marco Renault",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "69",
+   "expositor_2025": "",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "70",
+   "expositor_2025": "Oeste Container",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "71",
+   "expositor_2025": "",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "72",
+   "expositor_2025": "Foroeste Veículos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "73",
+   "expositor_2025": "Deny Gambatto Motors",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "74",
+   "expositor_2025": "Foroeste Caminhões",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "75",
+   "expositor_2025": "Quality Solar",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "76",
+   "expositor_2025": "Foroeste Caminhões",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "77",
+   "expositor_2025": "Gambatto Veículos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "78",
+   "expositor_2025": "Gambatto Motos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "79",
+   "expositor_2025": "Gambatto Motos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "81",
+   "expositor_2025": "Correa Instalações Elétricas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "82",
+   "expositor_2025": "Cooperoeste Indústria de Leite",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "83",
+   "expositor_2025": "Cooperoeste Indústria de Leite",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "84",
+   "expositor_2025": "Panelas de Cerâmica",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "85",
+   "expositor_2025": "Afubra",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "86",
+   "expositor_2025": "Cooperalfa",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "87",
+   "expositor_2025": "Sistemas de Irrigações G&E",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "88",
+   "expositor_2025": "Agromatrix Mezzalira",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "89",
+   "expositor_2025": "Poli Oeste",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "90",
+   "expositor_2025": "Razera Agrícola Valtra",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "91",
+   "expositor_2025": "Razera Agrícola Valtra",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "92",
+   "expositor_2025": "Loja Top Leite Iporã",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "93",
+   "expositor_2025": "Mecânica Signori",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "94",
+   "expositor_2025": "Mecânica Signori",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "95",
+   "expositor_2025": "DPR Agro Insumos Agrícolas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "96",
+   "expositor_2025": "Liotto Implementos",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "97",
+   "expositor_2025": "Martini Máquinas Agrícolas",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "98",
+   "expositor_2025": "Parque de Diversões Marcovich",
+   "status": "pendente",
+   "expositor_2027": "",
+   "obs": ""
+  },
+  {
+   "estande": "98.1",
+   "expositor_2025": "",
    "status": "pendente",
    "expositor_2027": "",
    "obs": ""
