@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>FAISMO 2027 · Painel</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
 <meta name="description" content="Acompanhamento da FAISMO 2027: patrocínios, atrações, estandes e planejamento.">
 <meta name="theme-color" content="#0f3d5e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -157,9 +158,30 @@ details.lista[open] > summary::after { content: 'Fechar ▴'; }
   td.long::before { display: block; margin-bottom: 2px; }
   .empty { display: block; }
 }
+/* Tela de senha */
+.lock { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; background: var(--brand); padding: 16px; }
+.lock[hidden] { display: none; }
+.lock-box { width: 100%; max-width: 360px; background: var(--panel); border-radius: var(--radius); padding: 28px 22px; box-shadow: 0 10px 40px rgba(0,0,0,.25); text-align: center; }
+.lock-box h1 { margin: 0 0 4px; font-size: 30px; color: var(--fg); }
+.lock-box p { color: var(--muted); font-size: 14px; }
+.lock-box input[type=password] { width: 100%; margin-top: 18px; font: inherit; font-size: 17px; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--soft); color: var(--fg); }
+.lock-box button { width: 100%; margin-top: 10px; font: inherit; font-size: 16px; font-weight: 600; padding: 12px; border-radius: 10px; border: 0; background: var(--brand); color: #fff; cursor: pointer; }
+.lock-box label { display: flex; gap: 8px; align-items: center; justify-content: center; margin-top: 12px; font-size: 13px; color: var(--muted); }
+.lock-err { color: var(--bad) !important; margin-top: 10px !important; min-height: 1.2em; }
+body.locked { overflow: hidden; }
 </style>
 </head>
-<body>
+<body class="locked">
+<div class="lock" id="lock">
+  <form class="lock-box" id="lockform" autocomplete="on">
+    <h1 class="serif">FAISMO 2027</h1>
+    <p>Painel de acompanhamento · acesso restrito</p>
+    <input type="password" id="senha" placeholder="Digite a senha" autocomplete="current-password" aria-label="Senha" required>
+    <button type="submit" id="entrar">Entrar</button>
+    <label><input type="checkbox" id="lembrar" checked> Lembrar neste aparelho</label>
+    <p class="lock-err" id="lockerr"></p>
+  </form>
+</div>
 
 <header class="hero">
   <div class="wrap">
@@ -513,8 +535,36 @@ document.getElementById('zmenos').addEventListener('click', () => setZoom(zoom -
 
 document.querySelectorAll('.pavsel button').forEach((b) => b.addEventListener('click', () => { PAV = b.dataset.pav; mapaSel = null; zoom = 1; document.getElementById('mbusca').value = ''; renderMapa(); }));
 
+/* ---------- Senha e dados cifrados ---------- */
+const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+async function abrirDados(senha) {
+  const enc = await fetch('dados.enc.json?v=' + Date.now(), { cache: 'no-store' }).then((r) => r.json());
+  const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(senha), 'PBKDF2', false, ['deriveKey']);
+  const key = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64(enc.salt), iterations: enc.it, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+  const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(enc.iv) }, key, b64(enc.ct));
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+const LS = { get: (k) => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} }, del: (k) => { try { localStorage.removeItem(k); } catch (e) {} } };
+async function entrar(senha, lembrar) {
+  const d = await abrirDados(senha);
+  if (lembrar) LS.set('faismo_senha', senha);
+  document.getElementById('lock').hidden = true; document.body.classList.remove('locked');
+  return d;
+}
+const pDados = new Promise((resolve) => {
+  const form = document.getElementById('lockform'), err = document.getElementById('lockerr'), btn = document.getElementById('entrar');
+  const salva = LS.get('faismo_senha');
+  if (salva) entrar(salva, false).then(resolve).catch(() => { LS.del('faismo_senha'); });
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); err.textContent = ''; btn.disabled = true; btn.textContent = 'Abrindo…';
+    try { resolve(await entrar(document.getElementById('senha').value, document.getElementById('lembrar').checked)); }
+    catch (x) { err.textContent = 'Senha incorreta. Tente de novo.'; }
+    btn.disabled = false; btn.textContent = 'Entrar';
+  });
+});
+
 Promise.all([
-  fetch('dados.json?v=' + Date.now(), { cache: 'no-store' }).then((r) => r.json()),
+  pDados,
   ...Object.keys(PAVS).map((k) => fetch('pavilhao' + k.slice(1).replace('xt', 'ext') + '.json?v=4', { cache: 'no-store' }).then((r) => r.json())),
 ]).then(([d, ...gs]) => { DADOS = d; Object.keys(PAVS).forEach((k, i) => { GEOS[k] = gs[i]; }); render(); })
   .catch(() => { document.getElementById('atualizado').textContent = 'Não foi possível carregar os dados. Tente recarregar a página.'; });
