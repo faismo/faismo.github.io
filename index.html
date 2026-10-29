@@ -267,6 +267,15 @@ body.locked { overflow: hidden; }
       <div class="stats"><div class="stat"><p class="label">Atrações confirmadas</p><p class="mid serif num" data-k="atracoes_qtd">—</p></div></div>
     </div>
     <div class="card"><table id="t-atracoes"></table></div>
+    <div class="card">
+      <h2 class="h2">Orçamentos recebidos</h2>
+      <p class="intro">Propostas de shows ainda <b>não contratadas</b>, para avaliação e decisão da comissão.</p>
+      <div class="stats">
+        <div class="stat"><p class="label">Orçamentos</p><p class="mid serif num" data-k="orcamentos_qtd">—</p></div>
+        <div class="stat"><p class="label">Faixa de valores</p><p class="mid serif num" id="orc-faixa">—</p></div>
+      </div>
+    </div>
+    <div class="card"><table id="t-orcamentos"></table></div>
   </section>
 
   <section class="page stack" id="estandes" hidden>
@@ -326,6 +335,8 @@ const TABELAS = {
     ['permuta', 'Permuta', money, 'r'], ['status', 'Situação'], ['contrapartida', 'Detalhes', null, 'long']] },
   atracoes: { main: 'atracao', vazio: 'Nenhuma atração confirmada ainda.', sort: 'data', cols: [
     ['atracao', 'Atração'], ['data', 'Dia', dataBR], ['horario', 'Horário'], ['palco', 'Palco / local'], ['status', 'Situação']] },
+  orcamentos: { main: 'atracao', vazio: 'Nenhum orçamento recebido ainda.', cols: [
+    ['atracao', 'Atração'], ['valor', 'Valor do orçamento', money, 'r'], ['status', 'Situação'], ['obs', 'Observações', null, 'long']] },
   planejamento: { main: 'item', vazio: 'Nenhum item em planejamento ainda.', cols: [
     ['item', 'Item'], ['status', 'Situação'], ['responsavel', 'Responsável'], ['prazo', 'Prazo', dataBR]] },
 };
@@ -369,7 +380,7 @@ function render() {
     rouanet_empresas: new Set(d.rouanet.map((r) => String(r.empresa).trim().toLowerCase())).size,
     privados_total: sum(d.privados, 'valor'), privados_qtd: d.privados.length,
     privados_especie: sum(d.privados, 'especie'), privados_permuta: sum(d.privados, 'permuta'),
-    atracoes_qtd: d.atracoes.length,
+    atracoes_qtd: d.atracoes.length, orcamentos_qtd: (d.orcamentos || []).length,
     planejamento_abertos: d.planejamento.filter((r) => !/conclu/i.test(r.status || '')).length,
   };
   k.patrocinio_total = k.rouanet_total + k.privados_total;
@@ -381,6 +392,9 @@ function render() {
     if (v > 0) { const s = el('span'); s.style.width = (v / k.patrocinio_total * 100) + '%'; s.style.background = `var(${c})`; bar.append(s); }
   });
   Object.keys(TABELAS).forEach((id) => tabela(id, d[id] || []));
+  const vo = (d.orcamentos || []).map((r) => Number(r.valor) || 0).filter(Boolean);
+  const fmtK = (v) => v >= 1000 ? 'R$ ' + int.format(Math.round(v / 1000)) + ' mil' : brl.format(v);
+  document.getElementById('orc-faixa').textContent = vo.length ? (vo.length > 1 ? fmtK(Math.min(...vo)) + ' a ' + fmtK(Math.max(...vo)) : fmtK(vo[0])) : '—';
   renderMapa();
   if (d.atualizado_em) {
     const dt = new Date(d.atualizado_em);
