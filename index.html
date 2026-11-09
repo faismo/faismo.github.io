@@ -393,7 +393,7 @@ function render() {
   });
   Object.keys(TABELAS).forEach((id) => tabela(id, d[id] || []));
   const vo = (d.orcamentos || []).map((r) => Number(r.valor) || 0).filter(Boolean);
-  const fmtK = (v) => v >= 1000 ? 'R$ ' + int.format(Math.round(v / 1000)) + ' mil' : brl.format(v);
+  const fmtK = (v) => v >= 1e6 ? 'R$ ' + new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 1 }).format(v / 1e6) + ' mi' : v >= 1000 ? 'R$ ' + int.format(Math.round(v / 1000)) + ' mil' : brl.format(v);
   document.getElementById('orc-faixa').textContent = vo.length ? (vo.length > 1 ? fmtK(Math.min(...vo)) + ' a ' + fmtK(Math.max(...vo)) : fmtK(vo[0])) : '—';
   renderMapa();
   if (d.atualizado_em) {
